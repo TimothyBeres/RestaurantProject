@@ -5,16 +5,34 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="FoodItems")
+@Table(name = "FoodItems")
 public class FoodItem {
     private String id;
+    private String name;
+    private String description;
+
     @Id
-    public String getID()
-    {
+    public String getID() {
         return this.id;
     }
-    public void setID(String id)
-    {
+
+    public void setID(String id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
