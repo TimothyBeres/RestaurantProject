@@ -19,5 +19,17 @@
       <jdbc-driver>org.apache.derby.jdbc.EmbeddedDriver</jdbc-driver>
       <jdbc-url>jdbc:derby:RestaurantDb;create=true</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="H2 - restaurant" uuid="3e2bc11b-b57f-4b2f-a67f-c1bb06a98d8c">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:~/restaurant;AUTO_SERVER=TRUE</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="restaurantdb" uuid="dd78a1a0-09d9-4941-9d88-56ec936274e7">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:~/restaurantdb</jdbc-url>
+    </data-source>
   </component>
 </project>

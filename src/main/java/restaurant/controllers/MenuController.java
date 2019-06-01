@@ -1,6 +1,7 @@
 package restaurant.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RestController;
 import restaurant.Services.MenuService;
 import restaurant.models.FoodItem;
@@ -18,6 +19,7 @@ import javax.ws.rs.Produces;
 @RestController
 public class MenuController  {
     @Autowired
+    @Inject
     private MenuService menuService;
 
     @GET

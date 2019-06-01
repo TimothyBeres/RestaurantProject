@@ -11,17 +11,21 @@ import restaurant.models.FoodItem;
 import restaurant.repository.FoodItemRepository;
 import restaurant.repository.OrderRepository;
 
+
 @SpringBootApplication
 public class Application extends javax.ws.rs.core.Application{
 
     private static Logger logger = LoggerFactory.getLogger(Application.class);
+
     public static void main(String[] args){
         SpringApplication.run(Application.class, args);
     }
+
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
         return builder.build();
     }
+
     @Bean
     public CommandLineRunner initMenu(FoodItemRepository foodItems, OrderRepository orders)
     {

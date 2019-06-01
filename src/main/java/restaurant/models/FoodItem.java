@@ -10,8 +10,8 @@ public class FoodItem {
     private String id;
     private String foodName;
     private String description;
-    public Double price;
-    public String category;
+    private Double price;
+    private String category;
     @ManyToMany
     private List<OfferItem> offerItems;
     @ManyToMany
