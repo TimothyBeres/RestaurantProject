@@ -1,5 +1,7 @@
 package models;
 
+import helpers.HelperClass;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -11,20 +13,19 @@ public class OfferItem {
 
     private String id;
     private String offerName;
-    private BigDecimal offerPrice;
-    private BigDecimal moneySaved;
-    private String category;
-    private List<String> foodItemsIDs = new ArrayList<String>();
+    private double offerPrice;
+    private double moneySaved;
+    @OneToMany
+    private List<FoodItem> foodItems;
 
     public OfferItem() {
     }
 
-    public OfferItem(String offerName, BigDecimal offerPrice, FoodItem foodItem) {
+    public OfferItem(String offerName, double offerPrice, List<FoodItem> foodItems) {
         this.offerName = offerName;
         this.offerPrice = offerPrice;
-        this.foodItem = foodItem;
-        this.category = category;
-        this.moneySaved = this.foodItem.price.subtract(this.offerPrice);
+        this.foodItems = foodItems;
+        this.moneySaved = HelperClass.calculateSavedMoney(offerPrice, foodItems);
     }
 
     @Id
@@ -43,27 +44,27 @@ public class OfferItem {
         this.offerName = offerName;
     }
 
-    public BigDecimal getOfferPrice() {
+    public double getOfferPrice() {
         return offerPrice;
     }
 
-    public void setOfferPrice(BigDecimal offerPrice) {
+    public void setOfferPrice(double offerPrice) {
         this.offerPrice = offerPrice;
     }
 
-    public BigDecimal getMoneySaved() {
+    public double getMoneySaved() {
         return moneySaved;
     }
 
-    public void setMoneySaved(BigDecimal moneySaved) {
+    public void setMoneySaved(double moneySaved) {
         this.moneySaved = moneySaved;
     }
 
-    public List<String> getFoodItems() {
-        return foodItemsIDs;
+    public List<FoodItem> getFoodItemIDs() {
+        return foodItems;
     }
-    public void setFoodItemsIDs(List<String> foodItemsIDs)
+    public void setFoodItemsIDs(List<FoodItem> foodItems)
     {
-        this.foodItemsIDs = foodItemsIDs;
+        this.foodItems = foodItems;
     }
 }

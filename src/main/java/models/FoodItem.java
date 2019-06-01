@@ -11,13 +11,13 @@ public class FoodItem {
     private String id;
     private String foodName;
     private String description;
-    public BigDecimal price;
+    public Double price;
     public String category;
 
     public FoodItem() {
     }
 
-    public FoodItem(String foodName, String description, BigDecimal price, String category) {
+    public FoodItem(String foodName, String description, double price, String category) {
         this.foodName = foodName;
         this.description = description;
         this.price = price;
@@ -55,11 +55,11 @@ public class FoodItem {
         this.description = description;
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }
