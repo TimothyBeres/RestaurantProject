@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "FoodItems")
 public class FoodItem {
-    private String id;
+    @Id private String id;
     private String foodName;
     private String description;
     public Double price;
@@ -24,7 +24,6 @@ public class FoodItem {
         this.category = category;
     }
 
-    @Id
     public String getID() {
         return id;
     }

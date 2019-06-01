@@ -1,9 +1,8 @@
 package models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import helpers.HelperClass;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -11,26 +10,24 @@ import java.util.List;
 @Table(name = "Orders")
 public class Order {
 
-    private String id;
+    @Id private String id;
     private String clientName;
     private String offerId;
-    private BigDecimal orderPrice;
+    private Double orderPrice;
 
-    @OneToMany
-    private List<FoodItem> foodItems;
+    @ElementCollection
+    private List<String> foodItems;
 
     public Order() {
 
     }
 
-    public Order(String clientName, List<FoodItem> foodItems) {
+    public Order(String clientName, List<String> foodItems) {
         this.clientName = clientName;
         this.foodItems = foodItems;
-        this.orderPrice = foodItems.stream().map(FoodItem::getPrice).reduce(BigDecimal::add).get();
+        this.orderPrice = HelperClass.calculateOrderPrice(foodItems);
     }
 
-
-    @Id
     public String getID() {
         return id;
     }
@@ -55,19 +52,19 @@ public class Order {
         this.offerId = offerId;
     }
 
-    public BigDecimal getOrderPrice() {
+    public Double getOrderPrice() {
         return orderPrice;
     }
 
-    public void setOrderPrice(BigDecimal offerPrice) {
+    public void setOrderPrice(Double offerPrice) {
         this.orderPrice = offerPrice;
     }
 
-    public List<FoodItem> getFoodItems() {
+    public List<String> getFoodItems() {
         return foodItems;
     }
 
-    public void setFoodItems(List<FoodItem> foodItems) {
+    public void setFoodItems(List<String> foodItems) {
         this.foodItems = foodItems;
     }
 }

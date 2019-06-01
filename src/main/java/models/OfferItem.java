@@ -11,24 +11,23 @@ import java.util.List;
 @Table(name = "OfferItems")
 public class OfferItem {
 
-    private String id;
+    @Id private String id;
     private String offerName;
     private double offerPrice;
     private double moneySaved;
-    @OneToMany
-    private List<FoodItem> foodItems;
+    @ElementCollection
+    private List<String> foodItems;
 
     public OfferItem() {
     }
 
-    public OfferItem(String offerName, double offerPrice, List<FoodItem> foodItems) {
+    public OfferItem(String offerName, double offerPrice, List<String> foodItems) {
         this.offerName = offerName;
         this.offerPrice = offerPrice;
         this.foodItems = foodItems;
         this.moneySaved = HelperClass.calculateSavedMoney(offerPrice, foodItems);
     }
 
-    @Id
     public String getID() {
         return this.id;
     }
@@ -60,10 +59,10 @@ public class OfferItem {
         this.moneySaved = moneySaved;
     }
 
-    public List<FoodItem> getFoodItemIDs() {
+    public List<String> getFoodItemIDs() {
         return foodItems;
     }
-    public void setFoodItemsIDs(List<FoodItem> foodItems)
+    public void setFoodItemsIDs(List<String> foodItems)
     {
         this.foodItems = foodItems;
     }

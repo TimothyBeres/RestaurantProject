@@ -1,6 +1,7 @@
 package Services;
 
 
+import com.sun.istack.internal.Nullable;
 import models.FoodItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import repository.FoodItemRepository;
@@ -17,7 +18,7 @@ public class MenuService {
     @Autowired
     private FoodItemRepository foodItemRepository;
 
-    public List<FoodItem> getAll(String foodName, String description) {
+    public List<FoodItem> getAll(@Nullable String foodName,@Nullable String description) {
 
         if (foodName != null && description != null) {
             return foodItemRepository.findFoodItemByParams(foodName, description);

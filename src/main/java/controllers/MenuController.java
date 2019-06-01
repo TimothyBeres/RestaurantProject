@@ -21,7 +21,7 @@ public class MenuController  {
     public JsonArray getAll()
     {
         JsonArrayBuilder builder = Json.createArrayBuilder();
-        for(FoodItem foodItem: menuService.getAll() )
+        for(FoodItem foodItem: menuService.getAll(null,null) )
         {
             builder.add(Json.createObjectBuilder().add("id", foodItem.getID()));
         }
