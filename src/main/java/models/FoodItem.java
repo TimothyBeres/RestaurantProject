@@ -8,7 +8,7 @@ import javax.persistence.Table;
 @Table(name = "FoodItems")
 public class FoodItem {
     private String id;
-    private String name;
+    private String foodName;
     private String description;
 
     @Id
@@ -21,11 +21,11 @@ public class FoodItem {
     }
 
     public String getName() {
-        return this.name;
+        return this.foodName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String foodName) {
+        this.foodName = foodName;
     }
 
     public String getDescription() {
