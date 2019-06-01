@@ -13,5 +13,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/Restaurant_db</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="Apache Derby (Embedded) - RestaurantDb" uuid="3b7cec1a-3829-4e89-a6b1-6dc963232f19">
+      <driver-ref>derby.embedded</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.apache.derby.jdbc.EmbeddedDriver</jdbc-driver>
+      <jdbc-url>jdbc:derby:RestaurantDb;create=true</jdbc-url>
+    </data-source>
   </component>
 </project>

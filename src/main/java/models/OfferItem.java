@@ -1,10 +1,9 @@
 package models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "OfferItems")
@@ -14,8 +13,8 @@ public class OfferItem {
     private String offerName;
     private BigDecimal offerPrice;
     private BigDecimal moneySaved;
-    @OneToOne
-    private FoodItem foodItem;
+    private String category;
+    private List<String> foodItemsIDs = new ArrayList<String>();
 
     public OfferItem() {
     }
@@ -24,18 +23,18 @@ public class OfferItem {
         this.offerName = offerName;
         this.offerPrice = offerPrice;
         this.foodItem = foodItem;
+        this.category = category;
         this.moneySaved = this.foodItem.price.subtract(this.offerPrice);
     }
 
     @Id
     public String getID() {
-        return id;
+        return this.id;
     }
 
     public void setID(String id) {
         this.id = id;
     }
-
     public String getOfferName() {
         return offerName;
     }
@@ -60,11 +59,11 @@ public class OfferItem {
         this.moneySaved = moneySaved;
     }
 
-    public FoodItem getFoodItem() {
-        return foodItem;
+    public List<String> getFoodItems() {
+        return foodItemsIDs;
     }
-
-    public void setFoodItem(FoodItem foodItem) {
-        this.foodItem = foodItem;
+    public void setFoodItemsIDs(List<String> foodItemsIDs)
+    {
+        this.foodItemsIDs = foodItemsIDs;
     }
 }

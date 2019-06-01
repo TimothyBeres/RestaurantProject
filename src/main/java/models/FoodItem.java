@@ -12,14 +12,16 @@ public class FoodItem {
     private String foodName;
     private String description;
     public BigDecimal price;
+    public String category;
 
     public FoodItem() {
     }
 
-    public FoodItem(String foodName, String description, BigDecimal price) {
+    public FoodItem(String foodName, String description, BigDecimal price, String category) {
         this.foodName = foodName;
         this.description = description;
         this.price = price;
+        this.category = category;
     }
 
     @Id
@@ -29,6 +31,12 @@ public class FoodItem {
 
     public void setID(String id) {
         this.id = id;
+    }
+    public String getCategory() {
+        return category;
+    }
+    public void setCategory( String category) {
+        this.category = category;
     }
 
     public String getName() {
