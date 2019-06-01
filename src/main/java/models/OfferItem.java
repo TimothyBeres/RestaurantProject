@@ -8,20 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "OfferItems")
 public class OfferItem {
 
     @Id private String id;
     private String offerName;
     private double offerPrice;
     private double moneySaved;
-    @ElementCollection
-    private List<String> foodItems;
+    @ManyToMany
+    private List<FoodItem> foodItems;
 
     public OfferItem() {
     }
 
-    public OfferItem(String offerName, double offerPrice, List<String> foodItems) {
+    public OfferItem(String offerName, double offerPrice, List<FoodItem> foodItems) {
         this.offerName = offerName;
         this.offerPrice = offerPrice;
         this.foodItems = foodItems;
@@ -59,10 +58,10 @@ public class OfferItem {
         this.moneySaved = moneySaved;
     }
 
-    public List<String> getFoodItemIDs() {
+    public List<FoodItem> getFoodItemIDs() {
         return foodItems;
     }
-    public void setFoodItemsIDs(List<String> foodItems)
+    public void setFoodItemsIDs(List<String> FoodItem)
     {
         this.foodItems = foodItems;
     }

@@ -2,17 +2,22 @@ package models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
-@Table(name = "FoodItems")
 public class FoodItem {
     @Id private String id;
     private String foodName;
     private String description;
     public Double price;
     public String category;
+    @ManyToMany
+    private List<OfferItem> offerItems;
+    @ManyToMany
+    private List<Order> orders;
 
     public FoodItem() {
     }
@@ -61,4 +66,10 @@ public class FoodItem {
     public void setPrice(double price) {
         this.price = price;
     }
+    public List<OfferItem> getOfferItems(){return this.offerItems;}
+    public void setOfferItems(List<OfferItem> offerItems){
+        this.offerItems = offerItems;
+    }
+    public List<Order> getOrders(){return this.orders;}
+    public void setOrders(List<Order> orders){this.orders = orders;}
 }

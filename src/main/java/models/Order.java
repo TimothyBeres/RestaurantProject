@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
-@Table(name = "Orders")
 public class Order {
 
     @Id private String id;
@@ -15,14 +14,14 @@ public class Order {
     private String offerId;
     private Double orderPrice;
 
-    @ElementCollection
-    private List<String> foodItems;
+    @ManyToMany
+    private List<FoodItem> foodItems;
 
     public Order() {
 
     }
 
-    public Order(String clientName, List<String> foodItems) {
+    public Order(String clientName, List<FoodItem> foodItems) {
         this.clientName = clientName;
         this.foodItems = foodItems;
         this.orderPrice = HelperClass.calculateOrderPrice(foodItems);
@@ -60,11 +59,11 @@ public class Order {
         this.orderPrice = offerPrice;
     }
 
-    public List<String> getFoodItems() {
+    public List<FoodItem> getFoodItems() {
         return foodItems;
     }
 
-    public void setFoodItems(List<String> foodItems) {
+    public void setFoodItems(List<FoodItem> foodItems) {
         this.foodItems = foodItems;
     }
 }

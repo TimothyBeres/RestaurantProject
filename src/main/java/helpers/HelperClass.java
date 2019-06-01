@@ -4,11 +4,11 @@ import models.FoodItem;
 import java.util.List;
 
 public class HelperClass {
-    public static Double calculateSavedMoney(Double offerPrice, List<String> foodItems)
+    public static Double calculateSavedMoney(Double offerPrice, List<FoodItem> foodItems)
     {
         double sumPrices = 0;
         double savedMoney = 0;
-        for(String foodItem: foodItems)
+        for(FoodItem foodItem: foodItems)
         {
             //logic
         }
@@ -16,10 +16,10 @@ public class HelperClass {
 
         return savedMoney;
     }
-    public static Double calculateOrderPrice(List<String> foodItems)
+    public static Double calculateOrderPrice(List<FoodItem> foodItems)
     {
         double sumPrices = 0;
-        for(String foodItem: foodItems)
+        for(FoodItem foodItem: foodItems)
         {
             //logic
         }
