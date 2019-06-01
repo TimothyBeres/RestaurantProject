@@ -2,6 +2,7 @@ package restaurant.Services;
 
 
 import com.sun.istack.internal.Nullable;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import restaurant.models.FoodItem;
@@ -14,7 +15,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Service
-@Component
+@Component("MenuService")
 public class MenuService {
 
     @Autowired
