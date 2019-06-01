@@ -11,6 +11,11 @@ public class FoodItem {
     private String foodName;
     private String description;
 
+    public FoodItem(String foodName, String description) {
+        this.foodName = foodName;
+        this.description = description;
+    }
+
     @Id
     public String getID() {
         return this.id;
