@@ -3,6 +3,7 @@ package models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "FoodItems")
@@ -10,6 +11,10 @@ public class FoodItem {
     private String id;
     private String foodName;
     private String description;
+    public BigDecimal price;
+
+    public FoodItem() {
+    }
 
     public FoodItem(String foodName, String description) {
         this.foodName = foodName;
@@ -18,7 +23,7 @@ public class FoodItem {
 
     @Id
     public String getID() {
-        return this.id;
+        return id;
     }
 
     public void setID(String id) {
@@ -26,7 +31,7 @@ public class FoodItem {
     }
 
     public String getName() {
-        return this.foodName;
+        return foodName;
     }
 
     public void setName(String foodName) {
@@ -34,10 +39,18 @@ public class FoodItem {
     }
 
     public String getDescription() {
-        return this.description;
+        return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 }

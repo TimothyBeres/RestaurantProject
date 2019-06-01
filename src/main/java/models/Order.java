@@ -17,7 +17,7 @@ public class Order {
 
     @Id
     public String getID() {
-        return this.id;
+        return id;
     }
 
     public void setID(String id) {
@@ -25,7 +25,7 @@ public class Order {
     }
 
     public String getClientName() {
-        return this.clientName;
+        return clientName;
     }
 
     public void setClientName(String clientName) {
@@ -33,7 +33,7 @@ public class Order {
     }
 
     public String getOfferId() {
-        return this.offerId;
+        return offerId;
     }
 
     public void setOfferId(String offerId) {
@@ -41,7 +41,7 @@ public class Order {
     }
 
     public BigDecimal getOfferPrice() {
-        return this.offerPrice;
+        return offerPrice;
     }
 
     public void setOfferPrice(BigDecimal offerPrice) {

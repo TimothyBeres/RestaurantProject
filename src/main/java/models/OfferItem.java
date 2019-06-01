@@ -2,10 +2,9 @@ package models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.math.BigDecimal;
-import java.util.List;
 
 @Entity
 @Table(name = "OfferItems")
@@ -14,14 +13,23 @@ public class OfferItem {
     private String id;
     private String offerName;
     private BigDecimal offerPrice;
+    private BigDecimal moneySaved;
+    @OneToOne
+    private FoodItem foodItem;
 
-    ////Kas ühel offeril võib olla ainult üks foodItem või mitu? ONE TO MANY VÕI ONE TO ONE?
-    @OneToMany
-    private List<FoodItem> foodItems;
+    public OfferItem() {
+    }
+
+    public OfferItem(String offerName, BigDecimal offerPrice, FoodItem foodItem) {
+        this.offerName = offerName;
+        this.offerPrice = offerPrice;
+        this.foodItem = foodItem;
+        this.moneySaved = this.foodItem.price.subtract(this.offerPrice);
+    }
 
     @Id
     public String getID() {
-        return this.id;
+        return id;
     }
 
     public void setID(String id) {
@@ -29,7 +37,7 @@ public class OfferItem {
     }
 
     public String getOfferName() {
-        return this.offerName;
+        return offerName;
     }
 
     public void setOfferName(String offerName) {
@@ -37,18 +45,26 @@ public class OfferItem {
     }
 
     public BigDecimal getOfferPrice() {
-        return this.offerPrice;
+        return offerPrice;
     }
 
     public void setOfferPrice(BigDecimal offerPrice) {
         this.offerPrice = offerPrice;
     }
 
-    public List<FoodItem> getFoodItems() {
-        return this.foodItems;
+    public BigDecimal getMoneySaved() {
+        return moneySaved;
     }
 
-    public void setFoodItems(List<FoodItem> foodItems) {
-        this.foodItems = foodItems;
+    public void setMoneySaved(BigDecimal moneySaved) {
+        this.moneySaved = moneySaved;
+    }
+
+    public FoodItem getFoodItem() {
+        return foodItem;
+    }
+
+    public void setFoodItem(FoodItem foodItem) {
+        this.foodItem = foodItem;
     }
 }
