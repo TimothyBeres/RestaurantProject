@@ -1,7 +1,9 @@
-package controllers;
+package restaurant.controllers;
 
-import Services.MenuService;
-import models.FoodItem;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+import restaurant.Services.MenuService;
+import restaurant.models.FoodItem;
 
 import javax.inject.Inject;
 import javax.json.Json;
@@ -13,8 +15,9 @@ import javax.ws.rs.Produces;
 
 
 @Path("/menu")
+@RestController
 public class MenuController  {
-    @Inject
+    @Autowired
     private MenuService menuService;
 
     @GET

@@ -1,7 +1,6 @@
-package repository;
+package restaurant.repository;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
-import models.Order;
+import restaurant.models.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

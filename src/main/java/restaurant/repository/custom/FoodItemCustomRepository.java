@@ -1,6 +1,6 @@
-package repository.custom;
+package restaurant.repository.custom;
 
-import models.FoodItem;
+import restaurant.models.FoodItem;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
-package repository;
+package restaurant.repository;
 
-import models.FoodItem;
+import restaurant.models.FoodItem;
 import org.springframework.data.jpa.repository.JpaRepository;
-import repository.custom.FoodItemCustomRepository;
+import restaurant.repository.custom.FoodItemCustomRepository;
 
 import java.util.List;
 
