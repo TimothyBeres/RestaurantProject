@@ -16,9 +16,10 @@ public class FoodItem {
     public FoodItem() {
     }
 
-    public FoodItem(String foodName, String description) {
+    public FoodItem(String foodName, String description, BigDecimal price) {
         this.foodName = foodName;
         this.description = description;
+        this.price = price;
     }
 
     @Id
