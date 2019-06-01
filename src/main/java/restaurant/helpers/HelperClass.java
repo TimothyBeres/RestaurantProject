@@ -1,6 +1,6 @@
-package helpers;
+package restaurant.helpers;
 
-import models.FoodItem;
+import restaurant.models.FoodItem;
 import java.util.List;
 
 public class HelperClass {

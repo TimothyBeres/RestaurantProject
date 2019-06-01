@@ -1,4 +1,4 @@
-package controllers;
+package restaurant.controllers;
 
 
 import javax.servlet.ServletException;

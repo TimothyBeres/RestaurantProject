@@ -1,15 +1,13 @@
-package models;
+package restaurant.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import java.math.BigDecimal;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class FoodItem {
-    @Id private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String id;
     private String foodName;
     private String description;
     public Double price;

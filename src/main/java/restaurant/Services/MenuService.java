@@ -1,17 +1,18 @@
-package Services;
+package restaurant.Services;
 
 
 import com.sun.istack.internal.Nullable;
-import models.FoodItem;
+import org.springframework.stereotype.Service;
+import restaurant.models.FoodItem;
 import org.springframework.beans.factory.annotation.Autowired;
-import repository.FoodItemRepository;
+import restaurant.repository.FoodItemRepository;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-@Stateless
+@Service
 public class MenuService {
     @PersistenceContext
     private EntityManager em;

@@ -1,15 +1,16 @@
-package models;
+package restaurant.models;
 
-import helpers.HelperClass;
+import restaurant.helpers.HelperClass;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
 public class Order {
 
-    @Id private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String id;
     private String clientName;
     private String offerId;
     private Double orderPrice;
