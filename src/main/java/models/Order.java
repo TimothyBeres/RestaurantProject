@@ -23,11 +23,10 @@ public class Order {
 
     }
 
-    public Order(String clientName, List<FoodItem> foodItems, BigDecimal orderPrice) {
+    public Order(String clientName, List<FoodItem> foodItems) {
         this.clientName = clientName;
         this.foodItems = foodItems;
-//this.orderPrice = foodItems.stream().map(foodItems -> foodItems.getPrice()).sum();
-        //this.orderPrice = foodItems.stream().mapToLong(FoodItem::getPrice).sum();
+        this.orderPrice = foodItems.stream().map(FoodItem::getPrice).reduce(BigDecimal::add).get();
     }
 
 
