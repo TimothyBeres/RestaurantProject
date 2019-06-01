@@ -14,6 +14,13 @@
             <artifactId>javaee-api</artifactId>
             <version>8.0</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>1.0.0.RELEASE</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>RestaurantApp</finalName>
